@@ -11,6 +11,7 @@ class Directory extends Component {
           id: 1,
           title: 'hats',
           imageUrl: 'images/hat.jpg',
+          url: 'hats',
         },
         {
           id: 2,
@@ -41,8 +42,14 @@ class Directory extends Component {
   render() {
     return (
       <div className="menu-container">
-        {this.state.setctions.map(({ id, title, imageUrl, size }) => (
-          <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+        {this.state.setctions.map(({ id, title, imageUrl, size, url }) => (
+          <MenuItem
+            key={id}
+            title={title}
+            imageUrl={imageUrl}
+            size={size}
+            urlLink={url}
+          />
         ))}
       </div>
     )
