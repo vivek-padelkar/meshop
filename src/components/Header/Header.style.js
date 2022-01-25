@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* margin-bottom: 5px; */
+  padding: 50px 20px;
 `
 export const LogoName = styled.span``
 export const StyledLink = styled(Link)`

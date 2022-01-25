@@ -7,8 +7,9 @@ import {
   LogoImageContainer,
 } from './Header.style'
 import { ReactComponent as Logo } from '../../assets/flogo.svg'
+import { auth } from '../../firebase/firebase.utils'
 
-const Header = () => {
+const Header = ({ currentUser }) => {
   return (
     <HeaderContainer>
       <StyledLink to="/">
@@ -23,6 +24,18 @@ const Header = () => {
       <OptionContainer>
         <StyledLink to="/shop">SHOP</StyledLink>
         <StyledLink to="/">CONTACT</StyledLink>
+        {currentUser ? (
+          <StyledLink
+            to="/signin"
+            onClick={() => {
+              auth.signOut()
+            }}
+          >
+            SIGN OUT
+          </StyledLink>
+        ) : (
+          <StyledLink to="/signin">SIGN IN</StyledLink>
+        )}
       </OptionContainer>
     </HeaderContainer>
   )
