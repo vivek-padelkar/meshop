@@ -55,7 +55,7 @@ class SignUp extends Component {
         <CutomForm onSubmit={this.handleSubmit}>
           <FormInput
             type="text"
-            name="displayNmae"
+            name="displayName"
             label="Display Name"
             value={displayName}
             onChange={this.handleChange}
