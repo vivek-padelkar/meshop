@@ -18,10 +18,25 @@ class App extends Component {
   unSubscribeAuth = null
 
   componentDidMount() {
-    this.unSubscribeAuth = auth.onAuthStateChanged(async (user) => {
-      createUserProfileDocument(user)
-      // this.setState({ currentUser: user })
-      //console.log(user)
+    //its a observer that runs every sign in and sign out
+    this.unSubscribeAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const UserRef = await createUserProfileDocument(userAuth)
+        UserRef.onSnapshot((snapshot) => {
+          console.log(`yo  snapshot ${JSON.stringify(snapshot.data())}`)
+          this.setState(
+            {
+              currentUser: {
+                id: snapshot.id,
+                ...snapshot.data(),
+              },
+            },
+            console.log(this.state)
+          )
+        })
+      }
+
+      this.setState({ currentUser: userAuth })
     })
   }
 
