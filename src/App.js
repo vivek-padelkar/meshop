@@ -23,7 +23,6 @@ class App extends Component {
       if (userAuth) {
         const UserRef = await createUserProfileDocument(userAuth)
         UserRef.onSnapshot((snapshot) => {
-          console.log(`yo  snapshot ${JSON.stringify(snapshot.data())}`)
           this.setState(
             {
               currentUser: {
@@ -31,7 +30,7 @@ class App extends Component {
                 ...snapshot.data(),
               },
             },
-            console.log(this.state)
+            console.log('setting state' + JSON.stringify(this.state))
           )
         })
       }
