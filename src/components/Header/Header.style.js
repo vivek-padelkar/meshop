@@ -7,7 +7,8 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 50px 20px;
+  padding: 20px;
+  position: relative;
 `
 export const LogoName = styled.span``
 export const StyledLink = styled(Link)`
@@ -21,8 +22,8 @@ export const LogoContainer = styled.div`
   font-weight: bold;
 `
 export const LogoImageContainer = styled.div`
-  height: 70px;
-  width: 70px;
+  height: 50px;
+  width: 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;

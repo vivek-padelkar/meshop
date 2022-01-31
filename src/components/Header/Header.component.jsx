@@ -9,8 +9,10 @@ import {
 import { ReactComponent as Logo } from '../../assets/flogo.svg'
 import { auth } from '../../firebase/firebase.utils'
 import { connect } from 'react-redux'
+import CartIcon from '../cart-icon/cartIcon.component'
+import CartDropDown from '../cart-dropdown/cart-dropdown.component'
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, hidden }) => {
   return (
     <HeaderContainer>
       <StyledLink to="/">
@@ -37,13 +39,16 @@ const Header = ({ currentUser }) => {
         ) : (
           <StyledLink to="/signin">SIGN IN</StyledLink>
         )}
+        <CartIcon />
       </OptionContainer>
+      {hidden ? null : <CartDropDown />}
     </HeaderContainer>
   )
 }
 
-const mapStateToProps = (state) => ({
-  currentUser: state.user.currentUser,
+const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
+  currentUser: currentUser,
+  hidden: hidden,
 })
 
 export default connect(mapStateToProps)(Header)
