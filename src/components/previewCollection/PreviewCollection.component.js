@@ -8,9 +8,11 @@ const CollectionPreview = ({ title, items }) => {
       <div className="preview">
         {items.slice(0, 4).map((item) => (
           <CollectionItem
-            imageUrl={item.imageUrl}
-            name={item.name}
-            price={item.price}
+            key={item.id}
+            item={item}
+            // imageUrl={item.imageUrl}
+            // name={item.name}
+            // price={item.price}
           />
         ))}
       </div>

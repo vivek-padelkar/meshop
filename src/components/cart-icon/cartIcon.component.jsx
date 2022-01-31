@@ -8,7 +8,12 @@ import { ToggleCartHidden } from '../../redux/cart/cart.actions'
 
 const CartIcon = ({ toggleCartHidden }) => {
   return (
-    <CartIconContainer onClick={toggleCartHidden}>
+    <CartIconContainer
+      onClick={() => {
+        console.log('ima fired')
+        toggleCartHidden()
+      }}
+    >
       <StyledShoppingIcon />
       <ItemCount>5</ItemCount>
     </CartIconContainer>
