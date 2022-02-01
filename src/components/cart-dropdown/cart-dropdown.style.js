@@ -3,7 +3,7 @@ import CustomeButton from '../custome-button/CustomeButton.component.jsx'
 
 export const CartDropDownContainer = styled.div`
   position: absolute;
-  width: 240px;
+  width: 300px;
   height: 340px;
   display: flex;
   flex-direction: column;
@@ -14,8 +14,9 @@ export const CartDropDownContainer = styled.div`
   right: 0;
   z-index: 5;
 `
-export const CartItem = styled.div`
-  height: 24px;
+export const CartItemContainer = styled.div`
+  height: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   overflow: scroll;
@@ -25,4 +26,21 @@ export const StyledButton = styled(CustomeButton)`
   margin-right: auto;
   margin-left: auto; */
   margin: auto;
+  margin-bottom: 5px;
+`
+export const EmptyCartContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`
+export const EmptyCartImage = styled.img`
+  width: 70%;
+  height: 40%;
+`
+export const EmptyCartTitle = styled.h2``
+export const EmptyCartSubtitle = styled.p`
+  font-weight: bold;
 `
