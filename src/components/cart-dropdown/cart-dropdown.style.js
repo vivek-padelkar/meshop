@@ -16,10 +16,10 @@ export const CartDropDownContainer = styled.div`
 `
 export const CartItemContainer = styled.div`
   height: 300px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   overflow: scroll;
+  padding: 20px;
 `
 export const StyledButton = styled(CustomeButton)`
   /* margin-top: auto;
