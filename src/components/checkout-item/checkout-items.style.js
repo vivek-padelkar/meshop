@@ -25,7 +25,9 @@ export const Name = styled.div`
 `
 export const Qty = styled.div`
   width: 23%;
-  padding-left: 20px;
+  padding-left: 5px;
+  display: flex;
+  gap: 10px;
 `
 export const Price = styled.div`
   width: 23%;
@@ -35,3 +37,7 @@ export const RemoveButtonContainer = styled.div`
   padding-left: 12px;
   cursor: pointer;
 `
+export const Arrow = styled.div`
+  cursor: pointer;
+`
+export const Value = styled.span``
