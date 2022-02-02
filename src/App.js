@@ -1,13 +1,19 @@
-import Homepage from './pages/homepage/Homepage.component'
+import { Component } from 'react'
 import './App.css'
 import { Route, Switch, Redirect } from 'react-router-dom'
-import ShopPage from './pages/shoppage/Shop.component'
-import Header from './components/Header/Header.component'
+
+import Homepage from './pages/homepage/Homepage.component'
 import SignInSignUpPage from './pages/signIn-signUp-page/signIn-signUp-page.component'
+import ShopPage from './pages/shoppage/Shop.component'
+import Checkout from './pages/checkout/checkout.component'
+
+import Header from './components/Header/Header.component'
+
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
-import { Component } from 'react'
 import { connect } from 'react-redux'
 import { setCurrentUser } from './redux/user/user.actions'
+import { selectCurrentUser } from './redux/user/user.selector'
+
 class App extends Component {
   unSubscribeAuth = null
 
@@ -58,15 +64,15 @@ class App extends Component {
             }
           />
 
-          {/* <Route exact path="/signin" component={SignInSignUpPage} />*/}
+          <Route exact path="/checkout" component={Checkout} />
         </Switch>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = (state) => ({
+  currentUser: selectCurrentUser(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({

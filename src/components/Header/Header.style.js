@@ -36,3 +36,7 @@ export const OptionContainer = styled.div`
   font-size: 20px;
   font-weight: bold;
 `
+export const UserName = styled.p`
+  margin: 0;
+  text-transform: uppercase;
+`
