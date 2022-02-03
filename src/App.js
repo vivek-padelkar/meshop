@@ -13,6 +13,7 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import { connect } from 'react-redux'
 import { setCurrentUser } from './redux/user/user.actions'
 import { selectCurrentUser } from './redux/user/user.selector'
+import collections from './pages/collections/collections.component'
 
 class App extends Component {
   unSubscribeAuth = null
@@ -51,7 +52,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/shop" component={ShopPage} />
-
+          <Route exact path="/shop/:collection" component={collections} />
           <Route
             exact
             path="/signin"
