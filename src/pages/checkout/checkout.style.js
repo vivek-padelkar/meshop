@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const CheckoutContainer = styled.div`
-  width: 55%;
+  width: 100%;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -23,4 +23,21 @@ export const HeaderBlock = styled.div`
   }
 `
 export const HeaderTitle = styled.span``
-export const Total = styled.div``
+export const Total = styled.div`
+  margin-top: 20px;
+  font-size: 24px;
+  margin-bottom: 20px;
+`
+export const productImageContainer = styled.div`
+  width: 22%;
+  background-color: red;
+`
+export const ShopData = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+export const TestCardDetail = styled.div`
+  margin-top: 20px;
+  color: red;
+  align-items: center;
+`
