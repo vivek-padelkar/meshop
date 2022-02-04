@@ -37,7 +37,7 @@ export const StyledButton = styled(CustomeButton)`
   }
 `
 export const CollectionItemContainer = styled.div`
-  width: 22%;
+  width: 22vw;
   height: 450px;
   align-items: center;
   display: flex;
