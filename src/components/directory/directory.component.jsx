@@ -5,7 +5,7 @@ import { createStructuredSelector } from 'reselect'
 import { selectDirectorySection } from '../../redux/directory/directory.selector'
 
 const Directory = ({ setctions }) => {
-  console.log(setctions)
+  //console.log(setctions)
   return (
     <div className="menu-container">
       {setctions.map(({ id, title, imageUrl, size, url }) => (

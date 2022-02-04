@@ -10,7 +10,7 @@ import { selectCollection } from '../../redux/shop/shop.selector'
 
 const collections = ({ collections }) => {
   const { title, items } = collections
-  console.log(collections)
+  //console.log(collections)
   return (
     <CollectionsContainer>
       <Title>{title}</Title>

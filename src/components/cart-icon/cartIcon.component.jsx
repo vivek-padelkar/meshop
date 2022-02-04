@@ -11,7 +11,7 @@ const CartIcon = ({ toggleCartHidden, cartItems }) => {
   return (
     <CartIconContainer
       onClick={() => {
-        console.log('ima fired')
+        //console.log('ima fired')
         toggleCartHidden()
       }}
     >

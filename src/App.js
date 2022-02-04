@@ -32,7 +32,7 @@ class App extends Component {
                 ...snapshot.data(),
               },
             },
-            console.log('setting state' + JSON.stringify(this.state))
+           // console.log('setting state' + JSON.stringify(this.state))
           )
         })
       }

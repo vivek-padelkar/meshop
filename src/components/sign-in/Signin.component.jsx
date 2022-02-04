@@ -20,7 +20,7 @@ class SignIn extends Component {
 
     try {
       await auth.signInWithEmailAndPassword(email, password)
-      console.log('success')
+      //console.log('success')
       this.setState({
         email: '',
         password: '',

@@ -13,7 +13,7 @@ const MenuItem = ({ title, imageUrl, size, urlLink }) => {
       <div
         className="content"
         onClick={() => {
-          console.log(urlLink)
+          //console.log(urlLink)
           history.push(`/${urlLink}`)
         }}
       >
