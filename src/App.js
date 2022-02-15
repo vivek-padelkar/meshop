@@ -9,36 +9,45 @@ import Checkout from './pages/checkout/checkout.component'
 
 import Header from './components/Header/Header.component'
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import { connect } from 'react-redux'
-import { setCurrentUser } from './redux/user/user.actions'
 import { selectCurrentUser } from './redux/user/user.selector'
-import collections from './pages/collections/collections.component'
-
+import { createStructuredSelector } from 'reselect'
+import { selectCollectionsForPreviw } from './redux/shop/shop.selector'
+import Collections from './pages/collections/collections.component'
+import { checkUserSession } from './redux/user/user.actions'
 class App extends Component {
   unSubscribeAuth = null
 
   componentDidMount() {
+    const { checkUserSession } = this.props
+    checkUserSession()
     //its a observer that runs every sign in and sign out
-    const { setCurrentUser } = this.props
-    this.unSubscribeAuth = auth.onAuthStateChanged(async (userAuth) => {
-      if (userAuth) {
-        const UserRef = await createUserProfileDocument(userAuth)
-        UserRef.onSnapshot((snapshot) => {
-          setCurrentUser(
-            {
-              currentUser: {
-                id: snapshot.id,
-                ...snapshot.data(),
-              },
-            },
-           // console.log('setting state' + JSON.stringify(this.state))
-          )
-        })
-      }
-
-      setCurrentUser(userAuth)
-    })
+    // this.unSubscribeAuth = auth.onAuthStateChanged(async (userAuth) => {
+    //   if (userAuth) {
+    //     const UserRef = await createUserProfileDocument(userAuth)
+    //     UserRef.onSnapshot((snapshot) => {
+    //       setCurrentUser(
+    //         {
+    //           currentUser: {
+    //             id: snapshot.id,
+    //             ...snapshot.data(),
+    //           },
+    //         }
+    //         // console.log('setting state' + JSON.stringify(this.state))
+    //       )
+    //     })
+    //   }
+    //auto add shop data***********
+    // addCollectionAndDocument(
+    //   'collections',
+    //   collectionsArray.map(({ title, items }) => ({
+    //     title,
+    //     items,
+    //   }))
+    // )
+    //*************************** */
+    //   setCurrentUser(userAuth)
+    // })
   }
 
   componentWillUnmount() {
@@ -52,7 +61,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/shop" component={ShopPage} />
-          <Route exact path="/shop/:collectionId" component={collections} />
+          <Route exact path="/shop/:collectionId" component={Collections} />
           <Route
             exact
             path="/signin"
@@ -64,7 +73,6 @@ class App extends Component {
               )
             }
           />
-
           <Route exact path="/checkout" component={Checkout} />
         </Switch>
       </div>
@@ -72,12 +80,13 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  currentUser: selectCurrentUser(state),
+const mapStateToProps = createStructuredSelector({
+  //will pass state in bellw functions automatically eg.selectCurrentUser(state)
+  currentUser: selectCurrentUser,
+  collectionsArray: selectCollectionsForPreviw,
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+const mapDispatchToProp = (dispatch) => ({
+  checkUserSession: () => dispatch(checkUserSession()),
 })
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProp)(App)

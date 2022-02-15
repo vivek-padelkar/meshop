@@ -7,26 +7,41 @@ import {
 import CollectionItem from '../../components/collectionItem/CollectionItem.component'
 import { connect } from 'react-redux'
 import { selectCollection } from '../../redux/shop/shop.selector'
+import { useEffect } from 'react'
 
-const collections = ({ collections }) => {
-  const { title, items } = collections
-  //console.log(collections)
+import { fetchColletionStartAsync } from '../../redux/shop/shop.actions'
+import { fetchCollectionStart } from '../../redux/shop/shop.actions'
+
+const Collections = ({ fetchCollectionStart, collections }) => {
+  useEffect(() => {
+    fetchCollectionStart()
+  }, [fetchCollectionStart])
+
   return (
     <CollectionsContainer>
-      <Title>{title}</Title>
-      <Items>
-        {items.map((item) => (
-          <Tempdiv key={item.id}>
-            <CollectionItem item={item} />
-          </Tempdiv>
-        ))}
-      </Items>
+      {collections ? (
+        <>
+          <Title>{collections.title}</Title>
+          <Items>
+            {collections.items.map((item) => (
+              <Tempdiv key={item.id}>
+                <CollectionItem item={item} />
+              </Tempdiv>
+            ))}
+          </Items>
+        </>
+      ) : (
+        <div>Loading....</div>
+      )}
     </CollectionsContainer>
   )
 }
+const mapDispatchToProps = (dispatch) => ({
+  fetchCollectionStart: () => dispatch(fetchCollectionStart()),
+})
 
 const mapStateToProps = (state, ownProps) => ({
   collections: selectCollection(ownProps.match.params.collectionId)(state),
 })
 
-export default connect(mapStateToProps)(collections)
+export default connect(mapStateToProps, mapDispatchToProps)(Collections)

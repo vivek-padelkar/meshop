@@ -36,8 +36,30 @@ export const ShopData = styled.div`
   display: flex;
   flex-direction: column;
 `
-export const TestCardDetail = styled.div`
-  margin-top: 20px;
-  color: red;
-  align-items: center;
+export const EmptyCartContainer = styled.div`
+  width: 60%;
+  height: 50vh;
+  opacity: 0.8;
+  position: relative;
+`
+export const EmptyCartButton = styled.button`
+  width: 400px;
+  height: 50px;
+  border: none;
+  background-color: black;
+  color: white;
+  position: absolute;
+  bottom: 250px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out all;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+`
+export const EmptyCartImage = styled.img`
+  width: 100%;
+  height: 100%;
 `
