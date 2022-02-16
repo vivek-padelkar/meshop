@@ -1,8 +1,9 @@
+import { connect } from 'react-redux'
 import { Component } from 'react'
 import { SignUpContainer, Title, CutomForm } from './SignUp.style'
 import FormInput from '../form-input/FormInput.component'
 import CustomeButton from '../custome-button/CustomeButton.component'
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils'
+import { signUpstart } from '../../redux/user/user.actions'
 
 class SignUp extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ class SignUp extends Component {
   }
 
   handleSubmit = async (e) => {
+    const { signUpstart } = this.props
     e.preventDefault()
     const { displayName, email, password, confirmPassword } = this.state
     if (password !== confirmPassword) {
@@ -23,21 +25,23 @@ class SignUp extends Component {
       return
     }
 
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      )
-      await createUserProfileDocument(user, { displayName })
-      this.setState({
-        displayName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      })
-    } catch (error) {
-      console.log('error while sign up ' + error.message)
-    }
+    signUpstart({ displayName, email, password })
+
+    // try {
+    //   const { user } = await auth.createUserWithEmailAndPassword(
+    //     email,
+    //     password
+    //   )
+    //   await createUserProfileDocument(user, { displayName })
+    //   this.setState({
+    //     displayName: '',
+    //     email: '',
+    //     password: '',
+    //     confirmPassword: '',
+    //   })
+    // } catch (error) {
+    //   console.log('error while sign up ' + error.message)
+    // }
   }
 
   handleChange = (e) => {
@@ -47,6 +51,7 @@ class SignUp extends Component {
 
   render() {
     const { displayName, email, password, confirmPassword } = this.state
+
     return (
       <SignUpContainer>
         <Title>I do not have a account</Title>
@@ -96,4 +101,7 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp
+const mapDispatchToProp = (dispatch) => ({
+  signUpstart: (userCredential) => dispatch(signUpstart(userCredential)),
+})
+export default connect(null, mapDispatchToProp)(SignUp)

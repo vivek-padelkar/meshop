@@ -8,7 +8,6 @@ import {
   UserName,
 } from './Header.style'
 import { ReactComponent as Logo } from '../../assets/flogo.svg'
-import { auth } from '../../firebase/firebase.utils'
 import { connect } from 'react-redux'
 import CartIcon from '../cart-icon/cartIcon.component'
 import CartDropDown from '../cart-dropdown/cart-dropdown.component'

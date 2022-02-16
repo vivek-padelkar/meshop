@@ -9,7 +9,6 @@ import { connect } from 'react-redux'
 import { selectCollection } from '../../redux/shop/shop.selector'
 import { useEffect } from 'react'
 
-import { fetchColletionStartAsync } from '../../redux/shop/shop.actions'
 import { fetchCollectionStart } from '../../redux/shop/shop.actions'
 
 const Collections = ({ fetchCollectionStart, collections }) => {

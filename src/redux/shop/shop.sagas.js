@@ -1,4 +1,4 @@
-import { takeLatest, call, put } from 'redux-saga/effects' //listen for every action of every type which we passed
+import { takeLatest, call, put, all } from 'redux-saga/effects' //listen for every action of every type which we passed
 import {
   convertColectionSnapshotToMap,
   firestore,
@@ -20,4 +20,8 @@ export function* fetchCollectionAsync() {
 export function* fetchCollectionStart() {
   //this function will pause when any specific action comes in
   yield takeLatest(ShopActionType.FETCH_COLLECTIONS_START, fetchCollectionAsync)
+}
+
+export function* shopSagas(){
+  yield all([call(fetchCollectionStart)])
 }
