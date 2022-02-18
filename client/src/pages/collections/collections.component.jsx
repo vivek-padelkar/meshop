@@ -5,17 +5,25 @@ import {
   Tempdiv,
 } from './collections.style'
 import CollectionItem from '../../components/collectionItem/CollectionItem.component'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch, usepa } from 'react-redux'
 import { selectCollection } from '../../redux/shop/shop.selector'
 import { useEffect } from 'react'
-
+import { useParams } from 'react-router-dom'
 import { fetchCollectionStart } from '../../redux/shop/shop.actions'
 
-const Collections = ({ fetchCollectionStart, collections }) => {
-  useEffect(() => {
-    fetchCollectionStart()
-  }, [fetchCollectionStart])
+const Collections = () => {
+  const dispatch = useDispatch()
+  const params = useParams()
 
+  const { collectionId } = params
+
+  console.log(collectionId)
+
+  useEffect(() => {
+    dispatch(fetchCollectionStart())
+  }, [dispatch])
+
+  const collections = useSelector(selectCollection(collectionId))
   return (
     <CollectionsContainer>
       {collections ? (
@@ -35,12 +43,12 @@ const Collections = ({ fetchCollectionStart, collections }) => {
     </CollectionsContainer>
   )
 }
-const mapDispatchToProps = (dispatch) => ({
-  fetchCollectionStart: () => dispatch(fetchCollectionStart()),
-})
+// const mapDispatchToProps = (dispatch) => ({
+//   fetchCollectionStart: () => dispatch(fetchCollectionStart()),
+// })
 
-const mapStateToProps = (state, ownProps) => ({
-  collections: selectCollection(ownProps.match.params.collectionId)(state),
-})
+// const mapStateToProps = (state, ownProps) => ({
+//   collections: selectCollection(ownProps.match.params.collectionId)(state),
+// })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Collections)
+export default Collections

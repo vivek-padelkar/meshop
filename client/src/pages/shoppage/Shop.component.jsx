@@ -1,5 +1,5 @@
 import CollectionOverview from '../../components/collection-overview/collection-overview.component'
-import { Component } from 'react'
+import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import WithSpinner from '../../components/with-spinner/with-spinner.component'
 import { fetchCollectionStart } from '../../redux/shop/shop.actions'
@@ -8,20 +8,16 @@ import { selectIsCollectionFetching } from '../../redux/shop/shop.selector'
 
 const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview)
 
-class ShopPage extends Component {
-  componentDidMount() {
-    const { fetchCollectionStart } = this.props
+const ShopPage = ({ fetchCollectionStart, isFetching }) => {
+  useEffect(() => {
     fetchCollectionStart()
-  }
+  }, [])
 
-  render() {
-    const { isFetching } = this.props
-    return (
-      <div className="shop-page">
-        <CollectionOverviewWithSpinner isLoading={isFetching} {...this.props} />
-      </div>
-    )
-  }
+  return (
+    <div className="shop-page">
+      <CollectionOverviewWithSpinner isLoading={isFetching} />
+    </div>
+  )
 }
 
 const mapDispatchToProps = (dispatch) => ({
