@@ -8,6 +8,10 @@ export const CheckoutContainer = styled.div`
   align-items: center;
   margin: 50px auto 0;
   font-weight: bold;
+
+  @media screen and (max-width: 800px) {
+    padding: 10px;
+  }
 `
 export const CheckoutHeader = styled.div`
   width: 100%;
@@ -20,6 +24,13 @@ export const HeaderBlock = styled.div`
   width: 23%;
   &:last-child {
     width: 8%;
+  }
+
+  @media screen and (max-width: 800px) {
+    display: flex;
+    &:last-child {
+      margin-right: 11px;
+    }
   }
 `
 export const HeaderTitle = styled.span``
@@ -41,6 +52,12 @@ export const EmptyCartContainer = styled.div`
   height: 50vh;
   opacity: 0.8;
   position: relative;
+
+  @media screen and (max-width: 800px) {
+    width: 100%;
+    height: 30vh;
+    margin-top: 100px;
+  }
 `
 export const EmptyCartButton = styled.button`
   width: 400px;

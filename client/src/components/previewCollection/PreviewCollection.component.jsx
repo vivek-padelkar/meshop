@@ -1,16 +1,20 @@
-import './PreviewCollection.style.scss'
 import CollectionItem from '../collectionItem/CollectionItem.component'
+import {
+  CollectionPreviewContainer,
+  TitleContainer,
+  PreviewContainer,
+} from './PreviewCollection.style.js'
 
 const CollectionPreview = ({ title, items }) => {
   return (
-    <div className="collewction-preview">
-      <h1 className="title">{title}</h1>
-      <div className="preview">
+    <CollectionPreviewContainer>
+      <TitleContainer>{title}</TitleContainer>
+      <PreviewContainer>
         {items.slice(0, 4).map((item) => (
           <CollectionItem key={item.id} item={item} />
         ))}
-      </div>
-    </div>
+      </PreviewContainer>
+    </CollectionPreviewContainer>
   )
 }
 

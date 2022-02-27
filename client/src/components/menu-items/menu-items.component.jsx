@@ -1,26 +1,34 @@
-import './menu-items.styles.scss'
+import {
+  MenuItemContainer,
+  BackgroundImageContainer,
+  ContentContainer,
+  ContentTitle,
+  ContentSubtitle,
+} from './menu-items.styles.js'
 import { useHistory } from 'react-router-dom'
 
 const MenuItem = ({ title, imageUrl, size, urlLink }) => {
   const history = useHistory()
 
   return (
-    <div className={`${size} menu-item`}>
-      <div
+    <MenuItemContainer
+      size={size}
+      // onClick={() => history.push(`${history.url}${linkUrl}`)}
+    >
+      <BackgroundImageContainer
         className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
       />
-      <div
+      <ContentContainer
         className="content"
         onClick={() => {
-          //console.log(urlLink)
           history.push(`/${urlLink}`)
         }}
       >
-        <h1 className="title">{title}</h1>
-        <span className="subtitle">shop now</span>
-      </div>
-    </div>
+        <ContentTitle className="title">{title}</ContentTitle>
+        <ContentSubtitle className="subtitle">shop now</ContentSubtitle>
+      </ContentContainer>
+    </MenuItemContainer>
   )
 }
 

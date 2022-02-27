@@ -18,6 +18,7 @@ import {
 import CheckoutItems from '../../components/checkout-item/checkout-items.component'
 import StripButton from '../../components/stripe-button/stripe-button.component'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+
 const Checkout = ({ cartItems, total }) => {
   const history = useHistory()
   return (

@@ -7,7 +7,7 @@ import { createStructuredSelector } from 'reselect'
 import { selectIsCollectionFetching } from '../../redux/shop/shop.selector'
 
 const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview)
-
+  
 const ShopPage = ({ fetchCollectionStart, isFetching }) => {
   useEffect(() => {
     fetchCollectionStart()

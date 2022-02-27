@@ -32,8 +32,15 @@ export const StyledButton = styled(CustomeButton)`
   color: black;
   display: none;
   &:hover {
-    background-color: black;
+    background-color: black;  
     color: white;
+  }
+
+  @media screen and (max-width: 800px) {
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
   }
 `
 export const CollectionItemContainer = styled.div`
@@ -52,6 +59,21 @@ export const CollectionItemContainer = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+    &:hover {
+      ${CollectionItemImage} {
+        opacity: unset;
+      }
+      ${StyledButton} {
+        opacity: unset;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 `
