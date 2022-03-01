@@ -25,7 +25,7 @@ const About = () => {
         </styled.About>
 
         <styled.DevelopedByTitle>
-          Developed and maintained by Vivek
+          *Developed and maintained by Vivek
         </styled.DevelopedByTitle>
       </styled.AboutCountainer>
     </styled.AboutUsContainer>
