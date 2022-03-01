@@ -15,6 +15,7 @@ export const CollectionFooter = styled.div`
   height: 5%;
   justify-content: space-between;
   font-size: 18px;
+  margin-top: 10px;
 `
 export const Name = styled.span`
   width: 90%;

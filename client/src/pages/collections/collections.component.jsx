@@ -2,11 +2,10 @@ import {
   CollectionsContainer,
   Items,
   Title,
-  GirdItemsReponsive,
   Tempdiv,
 } from './collections.style'
 import CollectionItem from '../../components/collectionItem/CollectionItem.component'
-import { useSelector, useDispatch, usepa } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { selectCollection } from '../../redux/shop/shop.selector'
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
@@ -25,10 +24,11 @@ const Collections = () => {
   }, [dispatch])
 
   const collections = useSelector(selectCollection(collectionId))
+
   return (
     <CollectionsContainer>
       {collections ? (
-        <GirdItemsReponsive >
+        <>
           <Title>{collections.title}</Title>
           <Items>
             {collections.items.map((item) => (
@@ -37,7 +37,7 @@ const Collections = () => {
               </Tempdiv>
             ))}
           </Items>
-        </GirdItemsReponsive>
+        </>
       ) : (
         <div>Loading....</div>
       )}

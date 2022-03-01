@@ -4,11 +4,16 @@ import {
   TitleContainer,
   PreviewContainer,
 } from './PreviewCollection.style.js'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 
 const CollectionPreview = ({ title, items }) => {
+  const history = useHistory()
+
   return (
     <CollectionPreviewContainer>
-      <TitleContainer>{title}</TitleContainer>
+      <TitleContainer to={`/shop/${title.toLowerCase()}`}>
+        {title}
+      </TitleContainer>
       <PreviewContainer>
         {items.slice(0, 4).map((item) => (
           <CollectionItem key={item.id} item={item} />

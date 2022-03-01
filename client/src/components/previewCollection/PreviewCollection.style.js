@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const CollectionPreviewContainer = styled.div`
   display: flex;
@@ -10,10 +11,13 @@ export const CollectionPreviewContainer = styled.div`
   }
 `
 
-export const TitleContainer = styled.h1`
+export const TitleContainer = styled(Link)`
   font-size: 28px;
   margin-bottom: 25px;
+  text-decoration: none;
+  font-weight: bold;
   cursor: pointer;
+  color: black;
   &:hover {
     color: grey;
   }
