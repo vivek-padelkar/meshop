@@ -32,7 +32,7 @@ export const StyledButton = styled(CustomeButton)`
   color: black;
   display: none;
   &:hover {
-    background-color: black;  
+    background-color: black;
     color: white;
   }
 

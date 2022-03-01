@@ -16,10 +16,19 @@ export const Items = styled.div`
 
   @media screen and (max-width: 800px) {
     grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    /* display: flex;
+    flex-grow: 1;
+    flex-direction: column; */
   }
 `
+
+export const GirdItemsReponsive = styled.div`
+  @media screen and (max-width: 800px) {
+    justify-self: end;
+  }
+`
+
 export const Tempdiv = styled.div`
   margin-bottom: 25px;
-  /* padding: 10px;
-  border: 1px solid black; */
 `

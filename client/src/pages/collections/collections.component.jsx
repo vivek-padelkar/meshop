@@ -2,6 +2,7 @@ import {
   CollectionsContainer,
   Items,
   Title,
+  GirdItemsReponsive,
   Tempdiv,
 } from './collections.style'
 import CollectionItem from '../../components/collectionItem/CollectionItem.component'
@@ -27,7 +28,7 @@ const Collections = () => {
   return (
     <CollectionsContainer>
       {collections ? (
-        <>
+        <GirdItemsReponsive >
           <Title>{collections.title}</Title>
           <Items>
             {collections.items.map((item) => (
@@ -36,7 +37,7 @@ const Collections = () => {
               </Tempdiv>
             ))}
           </Items>
-        </>
+        </GirdItemsReponsive>
       ) : (
         <div>Loading....</div>
       )}
