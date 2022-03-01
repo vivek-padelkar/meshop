@@ -13,6 +13,10 @@ export const Items = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 10px;
   margin-bottom: 10px;
+
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 export const Tempdiv = styled.div`
   margin-bottom: 25px;
