@@ -8,6 +8,7 @@ import { selectCurrentUser } from './redux/user/user.selector'
 import { checkUserSession } from './redux/user/user.actions'
 import Spinner from './components/spinner/spinner.component'
 import ErrorBoundary from './components/error-boundary/Error-boundary.component'
+import About from './components/about-us/About-us.component'
 
 const App = () => {
   //unSubscribeAuth = null
@@ -46,6 +47,7 @@ const App = () => {
               }
             />
             <Route exact path="/checkout" component={Checkout} />
+            <Route exact path="/about" component={About} />
           </Suspense>
         </ErrorBoundary>
       </Switch>

@@ -34,7 +34,8 @@ const Header = ({ currentUser, hidden, signOutStart }) => {
         ) : null}
 
         <StyledLink to="/shop">SHOP</StyledLink>
-        <StyledLink to="/">CONTACT</StyledLink>
+
+        <StyledLink to="/about">ABOUT</StyledLink>
         {currentUser ? (
           <StyledLink
             to="/signin"
